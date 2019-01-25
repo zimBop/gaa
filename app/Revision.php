@@ -3,12 +3,20 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Scopes\onlyCurrentScope;
 
 class Revision extends Model
 {
     protected $fillable = ['new_id', 'old_id', 'current'];
     
     public $timestamps = false;
+    
+    protected static function boot()
+    {
+        parent::boot();
+
+        // static::addGlobalScope(new onlyCurrentScope);
+    }
     
     /**
      * Get all revisions for model with ID = $id as array of model IDs
