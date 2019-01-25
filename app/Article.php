@@ -31,4 +31,14 @@ class Article extends Model
     {
         return $this->belongsTo('App\Category');
     }
+    
+    /**
+     * Get article comments
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
 }
