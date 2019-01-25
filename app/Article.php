@@ -21,4 +21,14 @@ class Article extends Model
     {
         return 'slug';
     }
+    
+    /**
+     * The tags associated with the article.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function tags()
+    {
+        return $this->belongsToMany('App\Tag');
+    }
 }
