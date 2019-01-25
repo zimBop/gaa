@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
-    protected $fillable = ['title', 'body', 'slug', 'published', 'created_by', 'modified_by'];
+    protected $fillable = ['category_id', 'title', 'body', 'slug', 'published', 'created_by', 'modified_by'];
     
     public static function boot()
     {
@@ -30,5 +30,15 @@ class Article extends Model
     public function tags()
     {
         return $this->belongsToMany('App\Tag');
+    }
+    
+    /**
+     * Get the article category.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function category()
+    {
+        return $this->belongsTo('App\Category');
     }
 }
