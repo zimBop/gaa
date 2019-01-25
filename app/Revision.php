@@ -71,6 +71,25 @@ class Revision extends Model
     }
     
     /**
+     * get all current revision model IDs as array
+     *
+     * @param string $modelClassName
+     * @return array
+     */
+    public static function getOnlyCurrent($modelClassName)
+    {
+        return static::select('new_id')
+            ->where([
+                ['model', $modelClassName],
+                ['current', 1]
+            ])
+            ->groupBy('new_id')
+            ->get()
+            ->pluck('new_id')
+            ->toArray();
+    }
+    
+    /**
      *
      * @param integer $id
      * @param string $modelClassName
