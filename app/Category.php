@@ -3,24 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\Sluggable;
 
 class Category extends Model
 {
-    protected $fillable = ['title', 'slug', 'parent_id', 'published', 'created_by', 'modified_by'];
-        
-    public static function boot()
-    {
-        parent::boot();
-
-        static::saving(function ($model) {
-            $model->slug = str_slug($model->title);
-        });
-    }
+    use Sluggable;
     
-    public function getRouteKeyName()
-    {
-        return 'slug';
-    }
+    protected $fillable = ['title', 'slug', 'parent_id', 'published', 'created_by', 'modified_by'];
     
     /**
      * Get parent category
