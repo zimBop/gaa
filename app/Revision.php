@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Scopes\onlyCurrentScope;
+use App\Scopes\OnlyCurrentScope;
 
 class Revision extends Model
 {
@@ -15,7 +15,7 @@ class Revision extends Model
     {
         parent::boot();
 
-        // static::addGlobalScope(new onlyCurrentScope);
+        // static::addGlobalScope(new OnlyCurrentScope);
     }
     
     /**

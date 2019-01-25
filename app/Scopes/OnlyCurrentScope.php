@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Scope;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 
-class onlyCurrentScope implements Scope
+class OnlyCurrentScope implements Scope
 {
     /**
      * Apply the scope to a given Eloquent query builder.
