@@ -3,11 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\Revisionable;
 use App\Traits\Sluggable;
 
 class Article extends Model
 {
-    use Sluggable;
+    use Sluggable, Revisionable;
     
     protected $fillable = ['category_id', 'title', 'body', 'slug', 'published', 'created_by', 'modified_by'];
     
